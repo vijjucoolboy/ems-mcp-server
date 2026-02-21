@@ -1,3 +1,33 @@
 spring:
   application:
     name: ems-mcp-server
+
+
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/emp-db
+
+  ai:
+    mcp:
+      server:
+        type: sync
+        name: emp-mcp-server
+        version: 1.0.0
+        sse-message-endpoint: /mcp/message
+        capabilities:
+          tool: true
+          completion: true
+          prompt: true
+          resource: true
+
+
+  logging:
+    level:
+      io.modelcontextprotocol.server.transport: DEBUG
+      org.springframework.web: DEBUG
+      org.springframework.ai: DEBUG
+      org.springframework.ai.mcp: DEBUG
+
+server:
+  port: 8090
